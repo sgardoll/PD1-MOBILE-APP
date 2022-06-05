@@ -66,27 +66,27 @@ export default function App(props) {
           <Stack.Screen
             name="Index"
             component={Index}
-            options={{ DefaultTheme, title: "My Contacts" }}
+            options={{ DefaultTheme, title: "Employee Directory" }}
           />
           <Stack.Screen
             name="Create"
             component={Create}
-            options={{ DefaultTheme, title: "Add Contact" }}
+            options={{ DefaultTheme, title: "Add Employee" }}
           />
           <Stack.Screen
             name="Details"
             component={Details}
-            options={{ DefaultTheme, title: "Contact Details" }}
+            options={{ DefaultTheme, title: "Employee Details" }}
           />
           <Stack.Screen
             name="Edit"
             component={Edit}
-            options={{ DefaultTheme, title: "Update Contact" }}
+            options={{ DefaultTheme, title: "Update Employee Details" }}
           />
           <Stack.Screen
             name="Delete"
             component={Delete}
-            options={{ DefaultTheme, title: "Delete Contact" }}
+            options={{ DefaultTheme, title: "Delete Employee" }}
           />
         </Stack.Navigator>
       </NavigationContainer>

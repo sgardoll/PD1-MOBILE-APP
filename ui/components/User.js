@@ -7,53 +7,54 @@ export default function User(props) {
   const navigation = useNavigation();
   let u = props.user.item;
 
-    return (
-      <View style={[styles.container, {
-        // Try setting `flexDirection` to `"row"`.
-
-      }]}>
-        <View style={{ flex: 12 }} />
+  return (
+    <View style={[styles.container]}>
+      <View>
+        <Text style={[styles.itemText]}>
+          {u.firstName} {u.lastName}
+        </Text>
+      </View>
+      <View style={[styles.icons]}>
         <IconButton
           icon="account-details"
           size={28}
           color="#941a1d"
           activeOpacity={0.5}
           onPress={() => navigation.navigate("Details", u)}
-        >
-          <Text>Details</Text>
-        </IconButton>
-        <View style={{ flex: 1 }} />
+        ></IconButton>
         <IconButton
           icon="square-edit-outline"
           size={28}
           color="#941a1d"
           activeOpacity={0.5}
           onPress={() => navigation.navigate("Edit", u)}
-        >
-          <Text>Edit</Text>
-        </IconButton>
-        <View style={{ flex: 1 }} />
+        ></IconButton>
         <IconButton
           icon="delete"
           size={28}
           color="#941a1d"
           activeOpacity={0.5}
           onPress={() => navigation.navigate("Delete", u)}
-        >
-          <Text>Delete</Text>
-        </IconButton>
-        
+        ></IconButton>
       </View>
-    );
-  };
-  
-  const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      padding: 20,
-      flexDirection: "row"
-    },
-  });
+    </View>
+  );
+}
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
 
+  icons: {
+    flexDirection: "row",
+  },
 
-     
+  itemText: {
+    fontSize: 24,
+    color: "black",
+  },
+});

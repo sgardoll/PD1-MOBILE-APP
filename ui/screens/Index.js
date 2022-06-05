@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react";
-import { Text, View, FlatList } from "react-native";
+import { useEffect, useState, List, Component } from "react";
+import { Text, View, FlatList, SafeAreaView, StyleSheet } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { fetchUsersAsync } from "../services/user.service";
 import User from "../components/User";
-import * as React from "react";
+
 import { Button, FAB, IconButton } from "react-native-paper";
 //import App from "./src/App";
 //import store from "./store";
@@ -38,28 +38,61 @@ export default function Index(props) {
     }
   }, [route.params]);
 
+  const ItemDivider = () => {
+    return (
+      <View
+        style={{
+          height: 1,
+          width: "100%",
+          backgroundColor: "#607D8B",
+        }}
+      />
+    );
+  };
+
   return (
-    <View style={{ flex: 1 }}>
-      <View>
-        <FlatList
+    <View style={[styles.MainContainer]}>
+      <View style={{flex: 1, flexDirection: "row"}}>
+        <FlatList 
           data={users}
           renderItem={(u) => <User user={u} />}
           keyExtractor={(item) => item.id}
+          ItemSeparatorComponent={ItemDivider}
         />
       </View>
       <FAB
         icon="plus"
         large="true"
         color="white"
-        theme={{ colors: { accent: "#941a1d" } }}
         style={{
           position: "absolute",
           margin: 16,
           right: 10,
           bottom: 10,
         }}
+        theme={{ colors: { accent: "#941a1d" } }}
         onPress={() => navigation.navigate("Create")}
       ></FAB>
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  MainContainer: {
+    flex: 1,
+    backgroundColor: "D9D9D9",
+    justiftContent: "center",
+  },
+
+  EmployeeBox: {
+    flex: 1,
+    flexDirection: "row",
+
+    paddingLeft: 15,
+    paddingTop: 8,
+    paddingBottom: 8,
+    padding: 20,
+  },
+
+
+});
