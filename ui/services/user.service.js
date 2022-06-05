@@ -18,7 +18,7 @@ export function addUserAsync(user) {
     .catch((e) => console.error(e));
 }
 export function updateUserAsync(user) {
-  return fetch(`${server}/${user.id}`, {
+  return fetch(server, {
     method: "PUT",
     headers: {
       Accept: "application/json",

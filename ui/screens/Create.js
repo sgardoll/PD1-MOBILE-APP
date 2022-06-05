@@ -1,10 +1,12 @@
+import * as React from "react";
 import { useState } from "react";
-import { Text, View, TextInput } from "react-native";
+import { Text, View, StyleSheet, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { addUserAsync } from "../services/user.service";
-import { Button } from "react-native-paper";
+import { Button, useTheme } from "react-native-paper";
 
 export default function Create() {
+  const [text, setText] = React.useState("");
   //navigation
   const navigation = useNavigation();
   //state
@@ -43,58 +45,132 @@ export default function Create() {
   }
   //JSX
   return (
-    <View>
-      <Text>FIRST NAME:</Text>
+    <View style={styles.container}>
       <TextInput
+        style={styles.inputContainerStyle}
+        label="First Name"
         value={firstName}
-        onChangeText={setFirstName}
+        onChangeText={(text) => setFirstName(text)}
+        placeholder="First Name"
+        placeholderTextColor={'grey'}
       />
-      <Text>LAST NAME:</Text>
       <TextInput
+        style={styles.inputContainerStyle}
+        label="Last Name"
         value={lastName}
         onChangeText={setLastName}
+        placeholder="Last Name"
+        placeholderTextColor={'grey'}
       />
-      <Text>AGE:</Text>
-      <TextInput value={age} onChangeText={setAge} />
-      <Text>EMAIL:</Text>
+
       <TextInput
+        style={styles.inputContainerStyle}
+        label="Age"
+        value={age}
+        onChangeText={setAge}
+        placeholder="Age"
+        placeholderTextColor={'grey'}
+      />
+
+      <TextInput
+        style={styles.inputContainerStyle}
+        label="Email Address"
         value={email}
         onChangeText={setEmail}
+        placeholder="E-Mail Address"
+        placeholderTextColor={'grey'}
       />
-      <Text>PHONE:</Text>
+
       <TextInput
+        style={styles.inputContainerStyle}
+        label="Phone Number"
         value={phone}
         onChangeText={setPhone}
+        placeholder="Phone Number"
+        placeholderTextColor={'grey'}
       />
-      <Text>DEPARTMENT:</Text>
+
       <TextInput
+        style={styles.inputContainerStyle}
+        label="Department"
         value={department}
         onChangeText={setDepartment}
+        placeholder="Department"
+        placeholderTextColor={'grey'}
       />
-      <Text>ADDRESS:</Text>
-      <Text>STREET:</Text>
+
       <TextInput
+        style={styles.inputContainerStyle}
+        label="Street Address"
         value={street}
         onChangeText={setStreet}
+        placeholder="Street Address"
+        placeholderTextColor={'grey'}
       />
-      <Text>SUBURB:</Text>
+
       <TextInput
+        style={styles.inputContainerStyle}
+        label="Suburb"
         value={suburb}
         onChangeText={setSuburb}
+        placeholder="Suburb"
+        placeholderTextColor={'grey'}
       />
-      <Text>STATE:</Text>
+
       <TextInput
+        style={styles.inputContainerStyle}
+        label="State"
         value={state}
         onChangeText={setState}
+        placeholder="State"
+        placeholderTextColor={'grey'}
       />
-      <Text>COUNTRY:</Text>
+
       <TextInput
+        style={styles.inputContainerStyle}
+        label="Country"
         value={country}
         onChangeText={setCountry}
+        placeholder="Country"
+        placeholderTextColor={'grey'}
       />
-      <Button mode="contained" onPress={submit}>
+
+      <Button style={styles.button}
+        color="#941a1d"
+        icon="content-save"
+        mode="contained"
+        onPress={submit}
+      >
         <Text>SAVE</Text>
       </Button>
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
+  item: {
+    fontWeight: "bold",
+    fontSize: 24,
+    color: "black",
+    marginVertical: 10,
+  },
+  detail: {
+    fontSize: 24,
+    color: "black",
+    marginVertical: 10,
+  },
+  inputContainerStyle: {
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: 'grey',
+    fontSize: 24,
+    backgroundColor: 'white',
+    padding: 10,
+    marginBottom: 10,
+  },
+  button: {
+    marginTop: 20,
+  }
+});

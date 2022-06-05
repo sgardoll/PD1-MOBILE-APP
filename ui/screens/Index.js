@@ -80,8 +80,8 @@ export default function Index(props) {
 const styles = StyleSheet.create({
   MainContainer: {
     flex: 1,
-    backgroundColor: "D9D9D9",
-    justiftContent: "center",
+    backgroundColor: "white",
+    justifyContent: "center",
   },
 
   EmployeeBox: {

@@ -1,18 +1,19 @@
+import * as React from "react";
 import { useState } from "react";
-import { Text, View, TextInput } from "react-native";
+import { Text, View, StyleSheet, TextInput } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import TxtInput from "../components/TxtInput";
 import Label from "../components/Label";
 import { updateUserAsync } from "../services/user.service";
-import { Button } from "react-native-paper";
+import { Button, useTheme } from "react-native-paper";
 
 export default function Edit() {
+
   //navigation
   const navigation = useNavigation();
   const route = useRoute();
   const user = route.params;
   //state
-  const [firstName, setFirstName] = useState(user.firstName);
+  const [firstName, setFirstName] = React.useState(user.firstName);
   const [lastName, setLastName] = useState(user.lastName);
   const [age, setAge] = useState(user.age);
   const [email, setEmail] = useState(user.email);
@@ -46,32 +47,102 @@ export default function Edit() {
     };
   }
   //JSX
-  return (
-    <View>
-      <Label value="FIRST NAME:" />
-      <TxtInput value={firstName} onChangeText={setFirstName} />
-      <Label value="LAST NAME:" />
-      <TxtInput value={lastName} onChangeText={setLastName} />
-      <Label value="AGE:" />
-      <TxtInput value={age} onChangeText={setAge} />
-      <Text>EMAIL:</Text>
-      <TxtInput value={email} onChangeText={setEmail} />
-      <Text>PHONE:</Text>
-      <TxtInput value={phone} onChangeText={setPhone} />
-      <Text>DEPARTMENT:</Text>
-      <TxtInput value={department} onChangeText={setDepartment} />
-      <Text>ADDRESS:</Text>
-      <Text>STREET:</Text>
-      <TxtInput value={street} onChangeText={setStreet} />
-      <Text>SUBURB:</Text>
-      <TxtInput value={suburb} onChangeText={setSuburb} />
-      <Text>STATE:</Text>
-      <TxtInput value={state} onChangeText={setState} />
-      <Text>COUNTRY:</Text>
-      <TxtInput value={country} onChangeText={setCountry} />
-      <Button mode="contained" onPress={submit}>
+  return (       
+    <View style={styles.container}>
+      <Label value="First Name:" />
+      <TextInput
+        style={styles.inputContainerStyle}
+        value={firstName}
+        onChangeText={setFirstName}
+      />
+      <Label value="Last Name:" />
+      <TextInput
+        style={styles.inputContainerStyle}
+        value={lastName}
+        onChangeText={setLastName}
+      />
+      <Label value="Age::" />
+      <TextInput
+        style={styles.inputContainerStyle}
+        value={age}
+        onChangeText={setAge}
+      />
+      <Text>E-Mail:</Text>
+      <TextInput
+        style={styles.inputContainerStyle}
+        value={email}
+        onChangeText={setEmail}
+      />
+      <Text>Phone Number:</Text>
+      <TextInput
+        style={styles.inputContainerStyle}
+        value={phone}
+        onChangeText={setPhone}
+        keyboardType="phone-pad"
+      />
+      <Text>Department:</Text>
+      <TextInput
+        style={styles.inputContainerStyle}
+        value={department}
+        onChangeText={setDepartment}
+      />
+      <Text>Street Address:</Text>
+      <TextInput
+        style={styles.inputContainerStyle}
+        value={street}
+        onChangeText={setStreet}
+      />
+      <Text>Suburb:</Text>
+      <TextInput
+        style={styles.inputContainerStyle}
+        value={suburb}
+        onChangeText={setSuburb}
+      />
+      <Text>State:</Text>
+      <TextInput
+        style={styles.inputContainerStyle}
+        value={state}
+        onChangeText={setState}
+      />
+      <Text>Country::</Text>
+      <TextInput
+        style={styles.inputContainerStyle}
+        value={country}
+        onChangeText={setCountry}
+      />
+      <Button style={styles.button}
+        color="#941a1d"
+        icon="content-save"
+        mode="contained"
+        onPress={submit}
+      >
         <Text>SAVE</Text>
       </Button>
     </View>
   );
 }
+const styles = StyleSheet.create({
+  container: {
+    padding: 20,
+  },
+  item: {
+    fontWeight: "bold",
+    fontSize: 24,
+  },
+  detail: {
+    fontSize: 24,
+    marginVertical: 10,
+  },
+  inputContainerStyle: {
+    borderWidth: 1,
+    borderRadius: 5,
+    borderColor: 'grey',
+    fontSize: 24,
+    backgroundColor: 'white',
+    padding: 10,
+    marginBottom: 10,
+  },
+  button: {
+    marginTop: 20,
+  }
+});
