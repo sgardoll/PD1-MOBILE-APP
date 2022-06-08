@@ -1,6 +1,7 @@
+import { React } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { View, Text, Image, SafeAreaView } from "react-native";
+import { Image, SafeAreaView } from "react-native";
 import Index from "./screens/Index";
 import Details from "./screens/Details";
 import Create from "./screens/Create";
@@ -13,7 +14,6 @@ import {
   // NavigationDefaultTheme,
 } from "react-native-paper";
 
-import { React } from "react";
 
 const Stack = createNativeStackNavigator();
 export default function App(props) {

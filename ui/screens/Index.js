@@ -1,10 +1,10 @@
-import { useEffect, useState, List, Component } from "react";
-import { Text, View, FlatList, SafeAreaView, StyleSheet } from "react-native";
+import { useEffect, useState } from "react";
+import { View, FlatList, StyleSheet } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import { fetchUsersAsync } from "../services/user.service";
 import User from "../components/User";
 
-import { Button, FAB, IconButton } from "react-native-paper";
+import { FAB } from "react-native-paper";
 //import App from "./src/App";
 //import store from "./store";
 

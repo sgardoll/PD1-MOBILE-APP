@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, TextInput } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import Label from "../components/Label";
 import { updateUserAsync } from "../services/user.service";
-import { Button, useTheme } from "react-native-paper";
+import { Button } from "react-native-paper";
 
 export default function Edit() {
 

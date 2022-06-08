@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-import { Button, IconButton, FAB } from "react-native-paper";
+import {  IconButton } from "react-native-paper";
 
 export default function User(props) {
   //navigation

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { Text, View, StyleSheet, TextInput } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { addUserAsync } from "../services/user.service";
-import { Button, useTheme } from "react-native-paper";
+import { Button } from "react-native-paper";
 
 export default function Create() {
   const [text, setText] = React.useState("");

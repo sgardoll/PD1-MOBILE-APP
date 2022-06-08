@@ -1,14 +1,6 @@
 import * as React from 'react';
 import { Text, View, StyleSheet } from "react-native";
 import { useNavigation, useRoute } from "@react-navigation/native";
-import {
-  Caption,
-  Headline,
-  Paragraph,
-  Subheading,
-  Title,
-  useTheme,
-} from 'react-native-paper';
 
 export default function Details() {
   //navigation
